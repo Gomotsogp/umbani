@@ -14,6 +14,13 @@ namespace umbani.View
         protected void Page_Load(object sender, EventArgs e)
         {
             fillgrid();
+            int id = 0;
+            id = int.Parse(Session["Authenticated"].ToString());
+            if (id == 0)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
         }
 
         private bool isSuccess;

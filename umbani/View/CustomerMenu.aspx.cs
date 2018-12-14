@@ -18,6 +18,14 @@ namespace umbani.View
                 fillgrid();
             }
 
+            int id = 0;
+            id =int.Parse(Session["Authenticated"].ToString());
+            if (id==0)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
+
 
         }
 

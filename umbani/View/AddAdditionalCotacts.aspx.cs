@@ -8,7 +8,13 @@ namespace umbani.View
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int id = 0;
+            id = int.Parse(Session["Authenticated"].ToString());
+            if (id == 0)
+            {
 
+                Response.Redirect("Login.aspx");
+            }
         }
         Contact c = new Contact();
         protected void Button1_Click(object sender, EventArgs e)

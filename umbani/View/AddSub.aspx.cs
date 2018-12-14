@@ -33,7 +33,7 @@ namespace umbani.View
             HttpCookie update = Request.Cookies["subscriptionID"];
             if (update != null)
             {
-               // id = int.Parse(Session["subscriptionID"].ToString());
+               id = int.Parse(Session["subscriptionID"].ToString());
                // id = int.Parse(Request.Cookies["subscriptionID"].Value);
 
                 // load the data into the controls
@@ -65,8 +65,8 @@ namespace umbani.View
         {
             if ((ddlContact.Text !="") && (ddlCompany.Text !="") && (ddlProduct.Text!="")  && (txtCost.Text!="") && (txtUsers.Text!=""))
             {
-                HttpCookie update = Request.Cookies["subscriptionID"];
-                if (update != null) id = int.Parse(update.Value);
+                //HttpCookie update = Request.Cookies["subscriptionID"];
+               // if (update != null) id = int.Parse(update.Value);
 
                 if (id >0)
                 {

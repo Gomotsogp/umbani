@@ -16,6 +16,13 @@ namespace umbani.View
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            int id = 0;
+            id = int.Parse(Session["Authenticated"].ToString());
+            if (id == 0)
+            {
+
+                Response.Redirect("Login.aspx");
+            }
             foreach (var item in c.GetCompanies())
             {
                 ddlContact.Items.Add(item.ContactId.Name);
