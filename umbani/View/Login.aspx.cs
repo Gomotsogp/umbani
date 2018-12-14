@@ -73,6 +73,7 @@ namespace umbani.View
                 {
                     Session["Authenticated"] = user.Id;
                     Response.Redirect("CustomerMenu.aspx");
+                    break;
                 }
                 else
                 {
