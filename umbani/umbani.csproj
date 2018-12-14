@@ -81,6 +81,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -163,13 +164,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,32 +238,20 @@
     <Content Include="View\Rates.aspx" />
     <Content Include="View\Register.aspx" />
     <Content Include="View\RenewSub.aspx" />
+    <Content Include="View\Reports.aspx" />
     <Content Include="View\SubscriptionMenu.aspx" />
     <Content Include="View\UserMenu.aspx" />
+    <Content Include="View\Utilities.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Data Access Layer\DataHandler.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -448,6 +435,13 @@
     <Compile Include="View\RenewSub.aspx.designer.cs">
       <DependentUpon>RenewSub.aspx</DependentUpon>
     </Compile>
+    <Compile Include="View\Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
     <Compile Include="View\SubscriptionMenu.aspx.cs">
       <DependentUpon>SubscriptionMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,6 +455,13 @@
     </Compile>
     <Compile Include="View\UserMenu.aspx.designer.cs">
       <DependentUpon>UserMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View\Utilities.aspx.cs">
+      <DependentUpon>Utilities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View\Utilities.aspx.designer.cs">
+      <DependentUpon>Utilities.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

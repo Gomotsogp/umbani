@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 using umbani.Data_Access_Layer;
 using umbani.Models;
 
@@ -49,6 +50,12 @@ namespace umbani.View
                 }
                 
             }
+            HttpCookie myCookie = new HttpCookie("updateCookie");
+
+            myCookie.Value = id.ToString();
+            myCookie.Expires = DateTime.Now.AddMinutes(1);
+            Session.RemoveAll();
+            //Session.Abandon();
 
 
         }
@@ -57,6 +64,8 @@ namespace umbani.View
         {
             if ((ddlContact.Text !="") && (ddlCompany.Text !="") && (ddlProduct.Text!="")  && (txtCost.Text!="") && (txtUsers.Text!=""))
             {
+                HttpCookie update = Request.Cookies["updateCookie"];
+                if (update != null) id = int.Parse(update.Value);
 
                 if (id >0)
                 {

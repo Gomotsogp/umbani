@@ -18,8 +18,8 @@
                   </div>
                  <div id="navigation">
                      <ul id="nav">
-                         <li><asp:HyperLink ID="HyperLink1" runat="server"  AutoPostBack="true" NavigateUrl="~/Pages/Subscription.aspx">Subscription</asp:HyperLink></li>
-                         <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Reports.aspx" Width="118px">Reports</asp:HyperLink>
+                         <li><asp:HyperLink ID="HyperLink1" runat="server"  AutoPostBack="true" NavigateUrl="~/View/SubscriptionMenu.aspx">Subscription</asp:HyperLink></li>
+                         <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/View/Reports.aspx" Width="118px">Reports</asp:HyperLink>
                              <asp:DropDownList ID="DropDownList1" runat="server">
                                    <asp:ListItem Value="">List</asp:ListItem>
                                    <asp:ListItem Value="">History</asp:ListItem>
@@ -28,7 +28,7 @@
                         
                          </li>  
                         
-                         <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Utilities.aspx">Utilities</asp:HyperLink><asp:DropDownList ID="dlUtilities" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlUtilities_OnSelectedIndexChanged">
+                         <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/View/Utilities.aspx">Utilities</asp:HyperLink><asp:DropDownList ID="dlUtilities" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlUtilities_OnSelectedIndexChanged">
                              <asp:ListItem>Utilities</asp:ListItem>
                              <asp:ListItem Value="AddUser.aspx">User</asp:ListItem>
                              <asp:ListItem Value="AddCompany.aspx">Customer</asp:ListItem>
