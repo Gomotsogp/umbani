@@ -21,6 +21,7 @@ namespace umbani.Data_Access_Layer
         List<Company> Companies = new List<Company>();
         List<Product> Products = new List<Product>();
         List<Subscription> Subscriptions = new List<Subscription>();
+        List<User> Users = new List<User>();
 
         public List<Contact> GetContacts()
         {
@@ -669,6 +670,157 @@ where id =@id";
                     // run the select query to the database 
 
                     string query = @"delete subscription 
+where id =@id";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    //insert the values into the parameters
+                    cmd.Parameters.Add(new SqlParameter("@id", id));
+
+                    //execute the query and set the isSuccess to true
+                    cmd.ExecuteNonQuery();
+                    isSuccess = true;
+
+                }
+                else
+                {
+                    throw new Exception("Database connection not established");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return isSuccess;
+        }
+
+        public List<User> GetUsers()
+        {
+            try
+            {
+                connection.Open();
+                if (connection.State == ConnectionState.Open)
+                {
+                    // run the select query to the database 
+                    DataSet ds = new DataSet();
+                    string query = @"select * from [user]";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(ds);
+
+                    DataTable dt = ds.Tables[0];
+
+                    //iterate through the list and bring back the list of contacts
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        Users.Add(new User(int.Parse(item[0].ToString()),item[1].ToString(),item[2].ToString(),item[3].ToString(),item[4].ToString()));
+                    }
+
+                }
+                else
+                {
+                    throw new Exception("Database connection not established");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return Users;
+        }
+
+        public bool SaveUser(string name, string email, string username, string password)
+        {
+            try
+            {
+                connection.Open();
+                if (connection.State == ConnectionState.Open)
+                {
+                    // run the select query to the database 
+
+                    string query = @"  insert into [user]
+  (fullname,email,username,password)
+  values
+  (@name,@email,@username,@pass)";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    //insert the values into the parameters
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@email", email));
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
+                    cmd.Parameters.Add(new SqlParameter("@pass", password));
+
+                    //execute the query and set the isSuccess to true
+                    cmd.ExecuteNonQuery();
+                    isSuccess = true;
+
+                }
+                else
+                {
+                    throw new Exception("Database connection not established");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return isSuccess;
+        }
+        public bool UpdateUser(string name, string email, string username, string password, int id)
+        {
+            try
+            {
+                connection.Open();
+                if (connection.State == ConnectionState.Open)
+                {
+                    // run the select query to the database 
+
+                    string query = @" update [user]
+  set fullname = @name, email =@email, username = @username,password = @pass
+  where id = @id";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    //insert the values into the parameters
+                    cmd.Parameters.Add(new SqlParameter("@name", name));
+                    cmd.Parameters.Add(new SqlParameter("@email", email));
+                    cmd.Parameters.Add(new SqlParameter("@username", username));
+                    cmd.Parameters.Add(new SqlParameter("@pass", password));
+                    cmd.Parameters.Add(new SqlParameter("@id", id));
+
+                    //execute the query and set the isSuccess to true
+                    cmd.ExecuteNonQuery();
+                    isSuccess = true;
+
+                }
+                else
+                {
+                    throw new Exception("Database connection not established");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+            return isSuccess;
+        }
+
+        public bool DeleteUser(int id)
+        {
+            try
+            {
+                connection.Open();
+                if (connection.State == ConnectionState.Open)
+                {
+                    // run the select query to the database 
+
+                    string query = @"delete [user] 
 where id =@id";
                     SqlCommand cmd = new SqlCommand(query, connection);
 

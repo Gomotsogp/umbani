@@ -8,11 +8,12 @@ using Owin;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity;
+using umbani.Models;
 
 
 namespace umbani.View
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,7 @@ namespace umbani.View
             }
         }
 
+        private User u = new User();
         protected void SignIn(object sender, EventArgs e)
         {
             /*if (IsValid)
@@ -64,6 +66,20 @@ namespace umbani.View
                         break;
                 }
             }*/
+
+            foreach (var user in u.GetUsers())
+            {
+                if ((user.Username == txtUserName.Text) && (user.Password== txtPassword.Text))
+                {
+                    Session["Authenticated"] = user.Id;
+                    Response.Redirect("CustomerMenu.aspx");
+                }
+                else
+                {
+                    Response.Write(@"<script language='javascript'>alert('Invalid User Credentials')</script>");
+                }
+            }
+
         }
 
         protected void SignOut(object sender, EventArgs e)

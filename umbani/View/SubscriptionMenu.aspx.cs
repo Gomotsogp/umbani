@@ -54,8 +54,9 @@ namespace umbani.View
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             int subscriptionId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex]?.Value.ToString());
-            Session["subscriptionID"] = subscriptionId;
-
+            HttpCookie subscriptionID = new HttpCookie("subscriptionID");
+            //Session["subscriptionID"] = subscriptionId;
+            subscriptionID.Value = subscriptionId.ToString();
             Response.Redirect("AddSub.aspx");
 
             /*int subscriptionId = Convert.ToInt32(GridView1.DataKeys[e.RowIndex]?.Value.ToString());
@@ -77,6 +78,13 @@ set companyid = {txtcompany.Text}, contactid = {txtcontac.Text}, productid = {tx
             // isSuccess = s.UpdateSubscription(int.Parse(txtcompany.Text),int.Parse(txtcontac.Text),int.Parse(txtproduct.Text))
 
             Response.Write(@"<script language='javascript'>alert('Product updated successfully')</script>");
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string queryString = "AddSub.aspx";
+            string newWin = "window.open('" + queryString + "');";
+            ClientScript.RegisterStartupScript(this.GetType(), "pop", newWin, true);
         }
     }
 }

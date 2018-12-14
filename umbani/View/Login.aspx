@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"   CodeBehind="Login.aspx.cs" Inherits="WebFormsIdentity.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"   CodeBehind="Login.aspx.cs" Inherits="umbani.View.Login" %>
 
 <!DOCTYPE html>
 
@@ -17,15 +17,15 @@
             </p>
          </asp:PlaceHolder>
             <div style="margin-bottom: 10px">
-               <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+               <asp:Label runat="server" AssociatedControlID="txtUserName">User name</asp:Label>
                <div>
-                  <asp:TextBox runat="server" ID="UserName" />
+                  <asp:TextBox runat="server" ID="txtUserName" />
                </div>
             </div>
             <div style="margin-bottom: 10px">
-               <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
+               <asp:Label runat="server" AssociatedControlID="txtPassword">Password</asp:Label>
                <div>
-                  <asp:TextBox runat="server" ID="Password" TextMode="Password" Height="25px" Width="168px" />
+                  <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" Height="25px" Width="168px" />
                </div>
             </div>
             <div style="margin-bottom: 10px">

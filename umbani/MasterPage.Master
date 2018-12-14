@@ -30,9 +30,9 @@
                         
                          <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/View/Utilities.aspx">Utilities</asp:HyperLink><asp:DropDownList ID="dlUtilities" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlUtilities_OnSelectedIndexChanged">
                              <asp:ListItem>Utilities</asp:ListItem>
-                             <asp:ListItem Value="AddUser.aspx">User</asp:ListItem>
-                             <asp:ListItem Value="AddCompany.aspx">Customer</asp:ListItem>
-                             <asp:ListItem Value="AddProduct.aspx">Product</asp:ListItem>
+                             <asp:ListItem Value="UserMenu.aspx">User</asp:ListItem>
+                             <asp:ListItem Value="CustomerMenu.aspx">Customer</asp:ListItem>
+                             <asp:ListItem Value="ProductMenu.aspx">Product</asp:ListItem>
                              <asp:ListItem Value="Rates.aspx">Rates</asp:ListItem>
 
                              </asp:DropDownList>

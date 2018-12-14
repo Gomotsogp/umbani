@@ -35,6 +35,23 @@ namespace umbani.View
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }*/
+            User u = new User();
+            if ((txtName.Text!="") && (txtEmail.Text != "") && (txtUsername.Text != "") && (txtPassword.Text != "") && (txtConfirmPas.Text != ""))
+            {
+                if (txtConfirmPas.Text == txtPassword.Text)
+                {
+                    u.SaveUser(txtName.Text, txtEmail.Text, txtUsername.Text, txtPassword.Text);
+                    Response.Write(@"<script language='javascript'>alert('subscription updated successfully')</script>");
+                }
+                else
+                {
+                    Response.Write(@"<script language='javascript'>alert('Passwords do not match')</script>");
+                }
+            }
+            else
+            {
+                Response.Write(@"<script language='javascript'>alert('Please make sure all fields are filled in')</script>");
+            }
         }
     }
 }

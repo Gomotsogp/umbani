@@ -72,5 +72,12 @@ where id ={productId}";
             }
             
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            string queryString = "AddProduct.aspx";
+            string newWin = "window.open('" + queryString + "');";
+            ClientScript.RegisterStartupScript(this.GetType(), "pop", newWin, true);
+        }
     }
 }

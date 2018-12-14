@@ -30,10 +30,11 @@ namespace umbani.View
             }*/
 
             //load data from session
-            
-            if (Session["subscriptionID"] != null)
+            HttpCookie update = Request.Cookies["subscriptionID"];
+            if (update != null)
             {
-                id = int.Parse(Session["subscriptionID"].ToString());
+               // id = int.Parse(Session["subscriptionID"].ToString());
+               // id = int.Parse(Request.Cookies["subscriptionID"].Value);
 
                 // load the data into the controls
                 
@@ -50,12 +51,12 @@ namespace umbani.View
                 }
                 
             }
-            HttpCookie myCookie = new HttpCookie("updateCookie");
+            /*HttpCookie myCookie = new HttpCookie("updateCookie");
 
             myCookie.Value = id.ToString();
             myCookie.Expires = DateTime.Now.AddMinutes(1);
-            Session.RemoveAll();
-            //Session.Abandon();
+            Session.RemoveAll();*/
+            Session.Abandon();
 
 
         }
@@ -64,7 +65,7 @@ namespace umbani.View
         {
             if ((ddlContact.Text !="") && (ddlCompany.Text !="") && (ddlProduct.Text!="")  && (txtCost.Text!="") && (txtUsers.Text!=""))
             {
-                HttpCookie update = Request.Cookies["updateCookie"];
+                HttpCookie update = Request.Cookies["subscriptionID"];
                 if (update != null) id = int.Parse(update.Value);
 
                 if (id >0)
