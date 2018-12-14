@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="umbani.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Umbani Software</title>
+    <link rel="stylesheet" href="Styles/StyleSheet1.css" type="text/css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="wrapper">
+                <div id="banner">
+                  
+                  </div>
+                 <div id="navigation">
+                     <ul id="nav">
+                         <li><asp:HyperLink ID="HyperLink1" runat="server"  AutoPostBack="true" NavigateUrl="~/Pages/Subscription.aspx">Subscription</asp:HyperLink></li>
+                         <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Pages/Reports.aspx" Width="118px">Reports</asp:HyperLink>
+                             <asp:DropDownList ID="DropDownList1" runat="server">
+                                   <asp:ListItem Value="">List</asp:ListItem>
+                                   <asp:ListItem Value="">History</asp:ListItem>
+                                   <asp:ListItem Value="">Overall</asp:ListItem>
+                             </asp:DropDownList>
+                        
+                         </li>  
+                        
+                         <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Pages/Utilities.aspx">Utilities</asp:HyperLink><asp:DropDownList ID="dlUtilities" runat="server" AutoPostBack="true" OnSelectedIndexChanged="dlUtilities_OnSelectedIndexChanged">
+                             <asp:ListItem>Utilities</asp:ListItem>
+                             <asp:ListItem Value="AddUser.aspx">User</asp:ListItem>
+                             <asp:ListItem Value="AddCompany.aspx">Customer</asp:ListItem>
+                             <asp:ListItem Value="AddProduct.aspx">Product</asp:ListItem>
+                             <asp:ListItem Value="Rates.aspx">Rates</asp:ListItem>
+
+                             </asp:DropDownList>
+                         </li>
+                         <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/View/LogOutScreen.aspx">Project|Logout</asp:HyperLink></li>
+                        
+
+                         
+                        
+
+                     </ul>
+                </div>
+                   <div id="content">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            <p>
+                                &nbsp;</p>
+                       </asp:ContentPlaceHolder>
+                </div>
+            </div>
+           
+        </div>
+    </form>
+</body>
+</html>
